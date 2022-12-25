@@ -1,38 +1,230 @@
-.App {
-  text-align: center;
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+    overflow-y: scroll;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+body {
+    background: #24353f;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #1ab188;
+    transition: 0.5s ease;
+}
+
+a:hover {
+    color: #179b77;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+    font-weight: 300;
+    margin: 0 0 40px;
+}
+
+label {
+    position: absolute;
+    transform: translateY(6px);
+    left: 13px;
+    color: rgba(255, 255, 255, .5);
+    transition: all 0.25s ease;
+    pointer-events: none;
+    font-size: 22px;
+}
+
+input,
+textarea {
+    font-size: 22px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 8px 10px;
+    background: none;
+    background-image: none;
+    border: 1px solid #a0b3b0;
+    color: #fff;
+    border-radius: 0;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+input:focus,
+textarea:focus {
+    outline: 0;
+    border-color: #1ab188;
+}
+
+textarea {
+    border: 2px solid #a0b3b0;
+    resize: vertical;
+}
+
+.navbar{
+    background-color: #29d0a2 !important;
+    font-size: 1.5rem;
+}
+
+.navbar-brand {
+    text-align: center;
+    color: #fff !important;
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+
+
+.nav-link {
+    color: #fff !important;
+    font-size: 1.5rem;
+}
+
+.nav-link:hover {
+    color: rgb(233, 222, 222) !important;
+    font-size: 1.5rem;
+}
+
+.add {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color:#F7E98D !important; 
+    font-size: 20px;
+    transition: 0.2s;
+    color: #fff;
+    /* box-shadow: 0px 23px 93px 1px rgba(0, 0, 0, 0.75); */
+}
+
+.add:hover {
+    background-color: #8BC34A !important;
+    color: #fff !important;
+}
+
+.note , .card{
+    background: linear-gradient(#F9EFAF, #F7E98D);
+    transition: all 0.3s;
+}
+
+.note:hover {
+    box-shadow: 0px 23px 93px 1px rgba(0, 0, 0, 0.75);
+}
+
+.note a {
+    color: black;
+    font-size: 23px;
+}
+
+.note i {
+    transition: all 0.3s;
+}
+
+.del:hover {
+    color: #F44336;
+    transform: rotate(-110deg);
+}
+
+.edit:hover {
+    color: #07f542;
+    transform: rotate(-50deg);
+}
+
+.fa-trash-alt, .fa-edit{
+    cursor: pointer;
+}
+
+
+
+.form input, .alert {
+    text-align: center;
+    border: 2px solid #3498db;
+    padding :14px 10px ;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    width: 80%;
+    margin: auto;
+}
+
+.form input:focus{
+    width:100%;
+    border: 2px solid #2ecc71;
+}
+
+.loader {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 50px;
+    height: 80px;
+    border-top: 5px solid #fff;
+    border-bottom: 5px solid #fff;
+    position: relative;
+    background: linear-gradient(#F7E98D 30px, transparent 0) no-repeat;
+    background-size: 2px 40px;
+    background-position: 50% 0px;
+    animation: spinx 5s linear infinite;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .loader:before, .loader:after {
+    content: "";
+    width: 40px;
+    left: 50%;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    transform: translatex(-50%);
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 0 0 20px 20px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: 0 0px;
+    animation: lqt 5s linear infinite;
   }
-  to {
-    transform: rotate(360deg);
+  .loader:after {
+    top: auto;
+    bottom: 0;
+    border-radius: 20px 20px 0 0;
+    animation: lqb 5s linear infinite;
   }
-}
+  @keyframes lqt {
+    0%, 100% {
+      background-image: linear-gradient(#F7E98D 40px, transparent 0);
+      background-position: 0% 0px;
+    }
+    50% {
+      background-image: linear-gradient(#F7E98D 40px, transparent 0);
+      background-position: 0% 40px;
+    }
+    50.1% {
+      background-image: linear-gradient(#F7E98D 40px, transparent 0);
+      background-position: 0% -40px;
+    }
+  }
+  @keyframes lqb {
+    0% {
+      background-image: linear-gradient(#F7E98D 40px, transparent 0);
+      background-position: 0 40px;
+    }
+    100% {
+      background-image: linear-gradient(#F7E98D 40px, transparent 0);
+      background-position: 0 -40px;
+    }
+  }
+  @keyframes spinx {
+    0%, 49% {
+      transform: rotate(0deg);
+      background-position: 50% 36px;
+    }
+    51%, 98% {
+      transform: rotate(180deg);
+      background-position: 50% 4px;
+    }
+    100% {
+      transform: rotate(360deg);
+      background-position: 50% 36px;
+    }
+  }
+          
