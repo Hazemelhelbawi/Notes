@@ -35,7 +35,7 @@ let navigate = useNavigate()
 
      console.log(user);
 
-   let {data}= await axios.post('https:/sticky-note-fe.vercel.app/signup',user)
+   let {data}= await axios.post('https://sticky-note-fe.vercel.app/signup',user)
     if (data.message === 'success'){
       // setMessage('success')
       navigate('/login')

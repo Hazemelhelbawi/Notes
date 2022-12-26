@@ -32,7 +32,7 @@ export default function Login({ saveUser }) {
     if(validateUser()){
 
      console.log(user);
-   let {data}= await axios.post('https:/sticky-note-fe.vercel.app/signin',user)
+   let {data}= await axios.post('https://sticky-note-fe.vercel.app/signin',user)
     if (data.message === 'success'){
       // setMessage('success')
       localStorage.setItem("token", data.token);
